@@ -10,6 +10,13 @@ style.textContent = `
 .rf-demo-unavailable{contain:layout paint}
 @media(max-width:480px){#rfStickyCart{bottom:8px}.rf-sticky-button{padding:9px 12px!important;font-size:13px}}
 body{padding-bottom:82px}
+
+/* Mobile: keep the sticky "Ver pedido" bar from covering checkout actions. */
+@media(max-width:600px){
+  #rfCheckoutModal{padding-bottom:104px!important}
+  #rfCheckoutModal form,#rfCheckoutModal #rfForm{padding-bottom:96px!important}
+  #rfCheckoutModal button[type="submit"]{position:relative;z-index:46!important}
+}
 `;
 document.head.appendChild(style);
 const $ = s => document.querySelector(s);
