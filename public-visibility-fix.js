@@ -14,6 +14,16 @@
       footer.rf-footer .rf-footer-label{color:#fdc36d !important}
       footer.rf-footer .rf-footer-text,footer.rf-footer .rf-footer-message,footer.rf-footer #footerContact,footer.rf-footer #footerMessage{color:rgba(255,255,255,.88) !important}
       footer.rf-footer .rf-footer-bottom{color:rgba(255,255,255,.72) !important;border-color:rgba(255,255,255,.18) !important}
+
+      /* Mobile layout: the floating order bar must never cover cart or checkout actions. */
+      @media(max-width:600px){
+        html,body{max-width:100%;overflow-x:hidden}
+        #cartDrawer aside{padding-bottom:env(safe-area-inset-bottom,0px)}
+        #cartDrawer aside>div:last-child{position:relative;z-index:2;background:#fff;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+        #checkoutModal aside{padding-bottom:env(safe-area-inset-bottom,0px)}
+        #checkoutForm>div:last-child{position:relative;z-index:2;background:#fff;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+        body.rf-cart-or-checkout-open #rfSticky{display:none !important}
+      }
     `;
     document.head.appendChild(style);
   }
@@ -25,6 +35,15 @@
     script.src = src;
     script.dataset[attr] = '1';
     document.body.appendChild(script);
+  }
+
+  function syncMobileCartLayer() {
+    if (window.innerWidth > 600) return;
+    const drawerOpen = !!document.querySelector('#cartDrawer:not(.hidden)');
+    const checkoutOpen = !!document.querySelector('#checkoutModal:not(.hidden)');
+    document.body.classList.toggle('rf-cart-or-checkout-open', drawerOpen || checkoutOpen);
+    const sticky = document.querySelector('#rfSticky');
+    if (sticky) sticky.style.setProperty('display', drawerOpen || checkoutOpen ? 'none' : '', 'important');
   }
 
   function sync() {
@@ -47,8 +66,10 @@
       footer.style.setProperty('background-image','none','important');
       footer.style.setProperty('color','#ffffff','important');
     }
+    syncMobileCartLayer();
   }
 
   sync();
   new MutationObserver(sync).observe(document.documentElement,{childList:true,subtree:true});
+  window.addEventListener('resize',syncMobileCartLayer,{passive:true});
 })();
