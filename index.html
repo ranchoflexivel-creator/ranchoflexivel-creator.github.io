@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Rancho Flexível — mercearia online.">
 <meta name="theme-color" content="#00361a">
-<meta name="rf-build" content="20260817-public-visibility-fix">
+<meta name="rf-build" content="20260911-mobile-checkout-fix">
 
 <link rel="preconnect" href="https://omwxktpktugunpkcxoim.supabase.co">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -41,10 +41,10 @@ html,body{margin:0;background:#f4fafd;color:#161d1f;font-family:Inter,sans-serif
 <div id="checkoutModal" class="hidden fixed inset-0 z-[80] bg-black/50 flex justify-end"><aside class="w-full max-w-xl h-full bg-white overflow-y-auto"><div class="p-5 border-b flex items-center justify-between sticky top-0 bg-white z-10"><h2 class="hero-title text-xl font-bold" data-i18n="yourOrder">O seu pedido</h2><button id="closeCheckout" class="p-2 rounded-full bg-gray-100">✕</button></div><div class="p-5 space-y-5"><div id="checkoutSummary" class="space-y-2 bg-surface-container-low rounded-xl p-4"></div><form id="checkoutForm" class="space-y-4"><h3 class="font-bold text-lg" data-i18n="customerData">Dados do cliente</h3><input id="customerName" class="w-full border rounded-xl p-3" placeholder="Nome completo *" required><input id="customerPhone" class="w-full border rounded-xl p-3" placeholder="Telefone *" required><select id="delivery" class="w-full border rounded-xl p-3" required><option value="">Seleccione forma de entrega *</option><option value="maputo">Maputo Cidade — 400 MZN</option><option value="arredores">Zonas circunvizinhas — 700 MZN</option><option value="matola">Matola — 1.000 MZN</option><option value="pickup">Levantamento — Grátis</option></select><input id="address" class="w-full border rounded-xl p-3" placeholder="Endereço / ponto de referência"><select id="payment" class="w-full border rounded-xl p-3" required><option value="">Pagamento *</option><option value="cash">Numerário</option><option value="mpesa">M-Pesa</option><option value="emola">E-Mola</option><option value="bank">Transferência Bancária</option></select><div id="paymentNumber" class="rf-payment-number"></div><div><h3 class="font-bold mb-2" data-i18n="substitutions">Aceita substituições?</h3><div class="space-y-2"><label class="flex gap-2 items-center border rounded-xl p-3"><input type="radio" name="substitution" value="contact" checked><span data-i18n="contactBefore">Contactar antes</span></label><label class="flex gap-2 items-center border rounded-xl p-3"><input type="radio" name="substitution" value="equivalent"><span data-i18n="equivalentProduct">Sim, por produto equivalente</span></label><label class="flex gap-2 items-center border rounded-xl p-3"><input type="radio" name="substitution" value="none"><span data-i18n="noReplacement">Não substituir</span></label></div></div><textarea id="notes" class="w-full border rounded-xl p-3 min-h-24" placeholder="Observações"></textarea><div class="flex gap-2"><button type="button" id="backToCart" class="flex-1 py-3 rounded-xl border font-bold" data-i18n="back">Voltar</button><button type="submit" class="flex-[2] py-3 rounded-xl bg-primary text-white font-bold" data-i18n="finishWhatsapp">Finalizar pelo WhatsApp</button></div></form></div></aside></div>
 <div id="toast" class="fixed bottom-5 right-5 z-[90] hidden bg-primary text-white px-5 py-3 rounded-xl shadow-xl"></div>
 <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
-<script type="module" src="public-site-v3.js?v=20260817-visibility"></script>
-<script type="module" src="public-enhancements.js?v=20260817-visibility"></script>
-<script type="module" src="public-final-fix.js?v=20260817-visibility"></script>
-<script type="module" src="public-admin-bridge.js?v=20260817-visibility"></script>
-<script type="module" src="public-visibility-fix.js?v=20260817-visibility"></script>
+<script type="module" src="public-site-v3.js?v=20260911-mobile-checkout-fix"></script>
+<script type="module" src="public-enhancements.js?v=20260911-mobile-checkout-fix"></script>
+<script type="module" src="public-final-fix.js?v=20260911-mobile-checkout-fix"></script>
+<script type="module" src="public-admin-bridge.js?v=20260911-mobile-checkout-fix"></script>
+<script type="module" src="public-visibility-fix.js?v=20260911-mobile-checkout-fix"></script>
 </body>
 </html>
